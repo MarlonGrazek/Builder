@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>Builder</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>main-SNAPSHOT</version>
     <name>com.marlongrazek.builder</name>
 
     <build>
