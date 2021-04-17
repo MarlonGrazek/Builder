@@ -4,15 +4,28 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Builder</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>com.marlongrazek.builder</name>
-
     <parent>
         <groupId>io.github.portlek</groupId>
         <artifactId>ppom</artifactId>
         <version>2.3.11</version>
     </parent>
+
+    <artifactId>Builder</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>com.marlongrazek.builder</name>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -40,6 +53,12 @@
             <artifactId>spigot-api</artifactId>
             <version>1.16.5-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version>
+            <type>maven-plugin</type>
         </dependency>
     </dependencies>
 
