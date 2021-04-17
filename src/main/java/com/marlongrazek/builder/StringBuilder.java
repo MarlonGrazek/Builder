@@ -7,8 +7,8 @@ public class StringBuilder {
     public StringBuilder() {
     }
 
-    public StringBuilder(String start) {
-        string += start;
+    public StringBuilder(Object object) {
+        this.string += object;
     }
 
 
@@ -25,6 +25,22 @@ public class StringBuilder {
 
     public Boolean contains(String string) {
         return this.string.contains(string);
+    }
+
+    public Boolean equals(String string) {
+        return this.string.equals(string);
+    }
+
+    public Boolean equalsIgnoreCase(String string) {
+        return this.string.equalsIgnoreCase(string);
+    }
+
+    public Boolean isEmpty() {
+        return this.string.isEmpty();
+    }
+
+    public Integer length() {
+        return this.string.length();
     }
 
     public StringBuilder remove(String string) {
@@ -56,6 +72,13 @@ public class StringBuilder {
         return new StringBuilder(this.string);
     }
 
+    public StringBuilder reverse() {
+        java.lang.StringBuilder sb = new java.lang.StringBuilder(this.string);
+        sb.reverse();
+        this.string = sb.toString();
+        return new StringBuilder(sb.toString());
+    }
+
     public StringBuilder set(String string) {
         this.string = string;
         return new StringBuilder(this.string);
@@ -65,6 +88,12 @@ public class StringBuilder {
         StringBuilder sb = new StringBuilder(this.string);
         sb.substring(start, end).set(string);
         this.string = sb.toString();
+        return sb;
+    }
+
+    public StringBuilder setLength(Integer length) {
+        StringBuilder sb = new StringBuilder(this.string);
+        this.string = sb.substring(0, length).toString();
         return sb;
     }
 
