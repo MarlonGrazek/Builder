@@ -120,7 +120,7 @@ public class ItemStackBuilder {
         this.itemFlags = itemFlags;
     }
 
-    public void setItemMetm(ItemMeta itemMeta) {
+    public void setItemMeta(ItemMeta itemMeta) {
         this.itemMeta = itemMeta;
     }
 
