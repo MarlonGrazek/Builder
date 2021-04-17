@@ -15,6 +15,7 @@ public class ItemStackBuilder {
     private Integer amount;
     private HashMap<Enchantment, Integer> enchantments;
     private ArrayList<ItemFlag> itemFlags;
+    private ItemMeta itemMeta;
     private ArrayList<String> lore;
     private Material material;
     private String name;
@@ -49,6 +50,14 @@ public class ItemStackBuilder {
         this.name = name;
     }
 
+    public ItemStackBuilder(String name, Material material, Integer amount, HashMap<Enchantment, Integer> enchantments, ItemMeta itemMeta) {
+        this.amount = amount;
+        this.enchantments = enchantments;
+        this.itemMeta = itemMeta;
+        this.material = material;
+        this.name = name;
+    }
+
 
     public void addEnchantment(Enchantment enchantment, Integer level) {
         enchantments.put(enchantment, level);
@@ -79,6 +88,10 @@ public class ItemStackBuilder {
         return itemFlags;
     }
 
+    public ItemMeta getItemMeta() {
+        return itemMeta;
+    }
+
     public ArrayList<String> getLore() {
         return lore;
     }
@@ -107,6 +120,10 @@ public class ItemStackBuilder {
         this.itemFlags = itemFlags;
     }
 
+    public void setItemMetm(ItemMeta itemMeta) {
+        this.itemMeta = itemMeta;
+    }
+
     public void setLore(ArrayList<String> lore) {
         this.lore = lore;
     }
@@ -129,13 +146,17 @@ public class ItemStackBuilder {
         itemFlagArray = itemFlags.toArray(itemFlagArray);
 
         ItemStack itemStack = new ItemStack(material);
-        ItemMeta itemMeta = itemStack.getItemMeta();
-        itemMeta.setDisplayName(name);
-        itemMeta.setLore(lore);
-        itemMeta.addItemFlags(itemFlagArray);
-        itemStack.setItemMeta(itemMeta);
-        itemStack.setAmount(amount);
-        itemStack.addUnsafeEnchantments(enchantments);
+
+        if (itemMeta != null) itemStack.setItemMeta(itemMeta);
+        else {
+            ItemMeta itemMeta = itemStack.getItemMeta();
+            itemMeta.setDisplayName(name);
+            itemMeta.setLore(lore);
+            itemMeta.addItemFlags(itemFlagArray);
+            itemStack.setItemMeta(itemMeta);
+            itemStack.setAmount(amount);
+            itemStack.addUnsafeEnchantments(enchantments);
+        }
 
         return itemStack;
     }
