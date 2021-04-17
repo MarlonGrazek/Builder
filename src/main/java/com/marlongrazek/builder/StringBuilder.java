@@ -2,7 +2,7 @@ package com.marlongrazek.builder;
 
 public class StringBuilder {
 
-    private String string;
+    private String string = "";
 
     public StringBuilder() {
     }
