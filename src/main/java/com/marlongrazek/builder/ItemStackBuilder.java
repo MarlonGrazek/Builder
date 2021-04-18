@@ -13,10 +13,10 @@ import java.util.HashMap;
 public class ItemStackBuilder {
 
     private Integer amount;
-    private HashMap<Enchantment, Integer> enchantments;
-    private ArrayList<ItemFlag> itemFlags;
+    private HashMap<Enchantment, Integer> enchantments = new HashMap<>();
+    private ArrayList<ItemFlag> itemFlags = new ArrayList<>();
     private ItemMeta itemMeta;
-    private ArrayList<String> lore;
+    private ArrayList<String> lore = new ArrayList<>();
     private Material material;
     private String name;
 
