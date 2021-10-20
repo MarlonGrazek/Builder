@@ -148,15 +148,13 @@ public class ItemStackBuilder {
         ItemStack itemStack = new ItemStack(material);
 
         if (itemMeta != null) itemStack.setItemMeta(itemMeta);
-        else {
-            ItemMeta itemMeta = itemStack.getItemMeta();
-            itemMeta.setDisplayName(name);
-            itemMeta.setLore(lore);
-            itemMeta.addItemFlags(itemFlagArray);
-            itemStack.setItemMeta(itemMeta);
-            itemStack.setAmount(amount);
-            itemStack.addUnsafeEnchantments(enchantments);
-        }
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        itemMeta.setDisplayName(name);
+        itemMeta.setLore(lore);
+        itemMeta.addItemFlags(itemFlagArray);
+        itemStack.setItemMeta(itemMeta);
+        itemStack.setAmount(amount);
+        itemStack.addUnsafeEnchantments(enchantments);
 
         return itemStack;
     }
